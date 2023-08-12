@@ -8,12 +8,22 @@ FFPLAY = E:/ffmpeg/bin/ffplay.exe
 
 WIDTH := 800
 HEIGHT := 800
-FRAMES := 120
+FRAMES := 600
 FPS := 30
 
 all: bf.exe out.mp4
 
-bf.exe: fractal_tree.c
+#bf.exe: rotating_tree.c
+#	$(CC) $(CFLAGS) -DWIDTH=$(WIDTH)\
+		-DHEIGHT=$(HEIGHT)\
+		-DFRAMES=$(FRAMES) -o $@ $^
+
+#bf.exe: fractal_tree.c
+#	$(CC) $(CFLAGS) -DWIDTH=$(WIDTH)\
+		-DHEIGHT=$(HEIGHT)\
+		-DFRAMES=$(FRAMES) -o $@ $^
+
+bf.exe: fern.c
 	$(CC) $(CFLAGS) -DWIDTH=$(WIDTH)\
 		-DHEIGHT=$(HEIGHT)\
 		-DFRAMES=$(FRAMES) -o $@ $^
